@@ -1,0 +1,55 @@
+[gd_scene load_steps=4 format=3 uid="uid://dh0vv6dnkni4u"]
+
+[ext_resource type="Texture2D" uid="uid://cp4iq5fd6j8be" path="res://deck_builder_tutorial-season-1-starter-project/art/background.png" id="1_qy0j2"]
+[ext_resource type="PackedScene" uid="uid://ds001de6atfpi" path="res://Scenes/Card UI/card_ui.tscn" id="2_xmdld"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_eqgph"]
+size = Vector2(512, 200)
+
+[node name="BattleManager" type="Node2D"]
+metadata/_edit_lock_ = true
+
+[node name="Background" type="Sprite2D" parent="."]
+modulate = Color(0.533333, 0.533333, 0.533333, 1)
+scale = Vector2(2, 2)
+texture = ExtResource("1_qy0j2")
+centered = false
+metadata/_edit_lock_ = true
+
+[node name="EnemyManager" type="Node" parent="."]
+
+[node name="PlayerManager" type="Node" parent="."]
+
+[node name="Player" type="Node" parent="."]
+
+[node name="UIManager" type="Node" parent="."]
+
+[node name="CardDropArea" type="Area2D" parent="."]
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CardDropArea"]
+position = Vector2(256, 100)
+shape = SubResource("RectangleShape2D_eqgph")
+
+[node name="BattleUI" type="CanvasLayer" parent="."]
+
+[node name="Hand" type="HBoxContainer" parent="BattleUI"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -150.0
+offset_top = -60.0
+offset_right = 150.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="CardUI" parent="BattleUI/Hand" instance=ExtResource("2_xmdld")]
+layout_mode = 2
+
+[node name="CardUI2" parent="BattleUI/Hand" instance=ExtResource("2_xmdld")]
+layout_mode = 2
+
+[node name="CardUI3" parent="BattleUI/Hand" instance=ExtResource("2_xmdld")]
+layout_mode = 2
