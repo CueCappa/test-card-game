@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://dh0vv6dnkni4u"]
+[gd_scene load_steps=5 format=3 uid="uid://dh0vv6dnkni4u"]
 
 [ext_resource type="Texture2D" uid="uid://cp4iq5fd6j8be" path="res://deck_builder_tutorial-season-1-starter-project/art/background.png" id="1_qy0j2"]
+[ext_resource type="Script" path="res://Scenes/UI/hand.gd" id="2_qn1eo"]
 [ext_resource type="PackedScene" uid="uid://ds001de6atfpi" path="res://Scenes/Card UI/card_ui.tscn" id="2_xmdld"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_eqgph"]
@@ -31,7 +32,7 @@ collision_layer = 2
 position = Vector2(256, 100)
 shape = SubResource("RectangleShape2D_eqgph")
 
-[node name="BattleUI" type="CanvasLayer" parent="."]
+[node name="BattleUI" type="CanvasLayer" parent="." groups=["ui_layer"]]
 
 [node name="Hand" type="HBoxContainer" parent="BattleUI"]
 anchors_preset = 7
@@ -44,6 +45,8 @@ offset_top = -60.0
 offset_right = 150.0
 grow_horizontal = 2
 grow_vertical = 0
+alignment = 1
+script = ExtResource("2_qn1eo")
 
 [node name="CardUI" parent="BattleUI/Hand" instance=ExtResource("2_xmdld")]
 layout_mode = 2
